@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import project.cinema.dao.MovieDao;
+import project.cinema.exception.DataProcessingException;
 import project.cinema.lib.Dao;
 import project.cinema.model.Movie;
 import project.cinema.util.HibernateUtil;
@@ -25,7 +26,7 @@ public class MovieDaoImpl implements MovieDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new RuntimeException("Can't insert movie entity", e);
+            throw new DataProcessingException("Can't insert movie entity", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -39,7 +40,7 @@ public class MovieDaoImpl implements MovieDao {
             Query<Movie> getAllMoviesQuerry = session.createQuery("from Movie ", Movie.class);
             return getAllMoviesQuerry.getResultList();
         } catch (Exception e) {
-            throw new RuntimeException("Can't find all Movies in DB", e);
+            throw new DataProcessingException("Can't find all Movies in DB", e);
         }
     }
 }
