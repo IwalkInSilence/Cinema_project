@@ -45,4 +45,3 @@ public class CinemaHallDaoImpl implements CinemaHallDao {
         }
     }
 }
-
