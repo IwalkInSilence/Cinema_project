@@ -50,8 +50,8 @@ public class Main {
 
         AuthenticationService authenticationService = (AuthenticationService)
                 injector.getInstance(AuthenticationService.class);
-        authenticationService.register("bob", "1123");
-        User bob = authenticationService.login("bob", "1123");
+        authenticationService.register("bobos@gmail.com", "1123");
+        User bob = authenticationService.login("bobos@gmail.com", "1123");
         System.out.println(bob);
     }
 }
