@@ -1,12 +1,14 @@
 package project.cinema.service.impl;
 
 import java.util.ArrayList;
-
 import project.cinema.dao.ShoppingCartDao;
 import project.cinema.dao.TicketDao;
 import project.cinema.lib.Inject;
 import project.cinema.lib.Service;
-import project.cinema.model.*;
+import project.cinema.model.MovieSession;
+import project.cinema.model.ShoppingCart;
+import project.cinema.model.Ticket;
+import project.cinema.model.User;
 import project.cinema.service.ShoppingCartService;
 
 @Service
