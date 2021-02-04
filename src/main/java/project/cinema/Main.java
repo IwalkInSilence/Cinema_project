@@ -63,6 +63,6 @@ public class Main {
         ShoppingCart bobShopCard = shoppingCartService.getByUser(bob);
         System.out.println("Bobs shopping card: " + bobShopCard);
         shoppingCartService.clear(bobShopCard);
-        System.out.println("clear: " + bobShopCard);
+        System.out.println("clear: " + shoppingCartService.getByUser(bob));
     }
 }
