@@ -8,11 +8,13 @@ import project.cinema.lib.Injector;
 import project.cinema.model.CinemaHall;
 import project.cinema.model.Movie;
 import project.cinema.model.MovieSession;
+import project.cinema.model.ShoppingCart;
 import project.cinema.model.User;
 import project.cinema.security.AuthenticationService;
 import project.cinema.service.CinemaHallService;
 import project.cinema.service.MovieService;
 import project.cinema.service.MovieSessionService;
+import project.cinema.service.ShoppingCartService;
 
 public class Main {
     private static Injector injector = Injector.getInstance("project.cinema");
@@ -53,5 +55,14 @@ public class Main {
         authenticationService.register("bobos@gmail.com", "1123");
         User bob = authenticationService.login("bobos@gmail.com", "1123");
         System.out.println(bob);
+
+        ShoppingCartService shoppingCartService = (ShoppingCartService)
+                injector.getInstance(ShoppingCartService.class);
+        shoppingCartService.addSession(movieSession, bob);
+        shoppingCartService.addSession(movieSession, bob);
+        ShoppingCart bobShopCard = shoppingCartService.getByUser(bob);
+        System.out.println("Bobs shopping card: " + bobShopCard);
+        shoppingCartService.clear(bobShopCard);
+        System.out.println("clear: " + shoppingCartService.getByUser(bob));
     }
 }
