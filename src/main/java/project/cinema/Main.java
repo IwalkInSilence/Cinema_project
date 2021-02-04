@@ -8,6 +8,7 @@ import project.cinema.lib.Injector;
 import project.cinema.model.CinemaHall;
 import project.cinema.model.Movie;
 import project.cinema.model.MovieSession;
+import project.cinema.model.ShoppingCart;
 import project.cinema.model.User;
 import project.cinema.security.AuthenticationService;
 import project.cinema.service.CinemaHallService;
@@ -59,6 +60,9 @@ public class Main {
                 injector.getInstance(ShoppingCartService.class);
         shoppingCartService.addSession(movieSession, bob);
         shoppingCartService.addSession(movieSession, bob);
-        System.out.println("Bobs shopping card: " + shoppingCartService.getByUser(bob));
+        ShoppingCart bobShopCard = shoppingCartService.getByUser(bob);
+        System.out.println("Bobs shopping card: " + bobShopCard);
+        shoppingCartService.clear(bobShopCard);
+        System.out.println("clear: " + bobShopCard);
     }
 }
