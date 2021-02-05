@@ -8,12 +8,14 @@ import project.cinema.lib.Injector;
 import project.cinema.model.CinemaHall;
 import project.cinema.model.Movie;
 import project.cinema.model.MovieSession;
+import project.cinema.model.Order;
 import project.cinema.model.ShoppingCart;
 import project.cinema.model.User;
 import project.cinema.security.AuthenticationService;
 import project.cinema.service.CinemaHallService;
 import project.cinema.service.MovieService;
 import project.cinema.service.MovieSessionService;
+import project.cinema.service.OrderService;
 import project.cinema.service.ShoppingCartService;
 
 public class Main {
@@ -62,7 +64,11 @@ public class Main {
         shoppingCartService.addSession(movieSession, bob);
         ShoppingCart bobShopCard = shoppingCartService.getByUser(bob);
         System.out.println("Bobs shopping card: " + bobShopCard);
-        shoppingCartService.clear(bobShopCard);
-        System.out.println("clear: " + shoppingCartService.getByUser(bob));
+        OrderService orderService = (OrderService)
+                injector.getInstance(OrderService.class);
+        Order order = orderService.completeOrder(shoppingCartService.getByUser(bob));
+        System.out.println(order);
+        List<Order> ordersHistory = orderService.getOrdersHistory(bob);
+        ordersHistory.forEach(System.out::println);
     }
 }
