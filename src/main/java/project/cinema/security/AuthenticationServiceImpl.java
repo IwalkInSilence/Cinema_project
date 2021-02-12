@@ -1,9 +1,8 @@
 package project.cinema.security;
 
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 import project.cinema.exception.AuthenticationException;
-import project.cinema.lib.Inject;
-import project.cinema.lib.Service;
 import project.cinema.model.User;
 import project.cinema.service.ShoppingCartService;
 import project.cinema.service.UserService;
@@ -11,10 +10,14 @@ import project.cinema.util.HashUtil;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    @Inject
-    private UserService userService;
-    @Inject
-    private ShoppingCartService shoppingCartService;
+    private final UserService userService;
+    private final ShoppingCartService shoppingCartService;
+
+    public AuthenticationServiceImpl(UserService userService,
+                                     ShoppingCartService shoppingCartService) {
+        this.userService = userService;
+        this.shoppingCartService = shoppingCartService;
+    }
 
     @Override
     public User login(String email, String password) throws AuthenticationException {
