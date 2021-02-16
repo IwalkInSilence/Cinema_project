@@ -9,7 +9,6 @@ import project.cinema.service.ShoppingCartMapper;
 
 @Controller
 public class ShoppingCartMapperImpl implements ShoppingCartMapper {
-
     @Override
     public ShoppingCartResponseDto parseToDto(ShoppingCart shoppingCart) {
         ShoppingCartResponseDto dto = new ShoppingCartResponseDto();

@@ -14,8 +14,8 @@ import project.cinema.service.MovieSessionMapper;
 
 @Component
 public class MovieSessionMapperImpl implements MovieSessionMapper {
-    private MovieService movieService;
-    private CinemaHallService cinemaHallService;
+    private final MovieService movieService;
+    private final CinemaHallService cinemaHallService;
 
     public MovieSessionMapperImpl(MovieService movieService, CinemaHallService cinemaHallService) {
         this.movieService = movieService;
