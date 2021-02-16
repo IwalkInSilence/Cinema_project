@@ -32,7 +32,7 @@ public class ShoppingCartController {
     @PostMapping("/movie-sessions")
     public void addMovieSession(@RequestParam Long userId, @RequestParam Long movieSessionId) {
         shoppingCartService.addSession(
-                 movieSessionService.getById(movieSessionId).get(), userService.getById(userId));
+                 movieSessionService.getById(movieSessionId), userService.getById(userId));
     }
 
     @GetMapping
