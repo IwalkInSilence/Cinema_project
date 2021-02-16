@@ -51,4 +51,16 @@ public class UserDaoImpl implements UserDao {
             throw new DataProcessingException("Can't find User with Email: " + email, e);
         }
     }
+
+    @Override
+    public Optional<User> getById(Long id) {
+        try (Session session = sessionFactory.openSession()) {
+            Query<User> emailQuery = session.createQuery("from User " + "where id = :id ",
+                    User.class)
+                    .setParameter("id", id);
+            return emailQuery.uniqueResultOptional();
+        } catch (Exception e) {
+            throw new DataProcessingException("Can't find User with id: " + id, e);
+        }
+    }
 }

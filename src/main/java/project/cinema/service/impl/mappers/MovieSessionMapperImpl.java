@@ -1,4 +1,4 @@
-package project.cinema.service.impl;
+package project.cinema.service.impl.mappers;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
