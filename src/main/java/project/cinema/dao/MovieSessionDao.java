@@ -2,6 +2,7 @@ package project.cinema.dao;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import project.cinema.model.MovieSession;
 
 public interface MovieSessionDao {
@@ -13,5 +14,5 @@ public interface MovieSessionDao {
 
     void delete(Long id);
 
-    MovieSession getById(Long id);
+    Optional<MovieSession> getById(Long id);
 }

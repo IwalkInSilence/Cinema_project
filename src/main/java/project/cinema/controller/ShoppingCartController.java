@@ -13,12 +13,12 @@ import project.cinema.service.ShoppingCartService;
 import project.cinema.service.UserService;
 
 @RestController
-@RequestMapping("/shopping-cart")
+@RequestMapping("/shopping-carts")
 public class ShoppingCartController {
-    private ShoppingCartService shoppingCartService;
-    private MovieSessionService movieSessionService;
-    private UserService userService;
-    private ShoppingCartMapper shoppingCartMapper;
+    private final ShoppingCartService shoppingCartService;
+    private final MovieSessionService movieSessionService;
+    private final UserService userService;
+    private final ShoppingCartMapper shoppingCartMapper;
 
     public ShoppingCartController(
             ShoppingCartService shoppingCartService, MovieSessionService movieSessionService,
@@ -32,12 +32,12 @@ public class ShoppingCartController {
     @PostMapping("/movie-sessions")
     public void addMovieSession(@RequestParam Long userId, @RequestParam Long movieSessionId) {
         shoppingCartService.addSession(
-                 movieSessionService.getById(movieSessionId), userService.getById(userId).get());
+                 movieSessionService.getById(movieSessionId).get(), userService.getById(userId));
     }
 
     @GetMapping
     public ShoppingCartResponseDto getByUser(@RequestParam Long id) {
-        ShoppingCart shoppingCart = shoppingCartService.getByUser(userService.getById(id).get());
+        ShoppingCart shoppingCart = shoppingCartService.getByUser(userService.getById(id));
         return shoppingCartMapper.parseToDto(shoppingCart);
     }
 }

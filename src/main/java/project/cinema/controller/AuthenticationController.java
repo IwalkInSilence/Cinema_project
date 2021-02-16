@@ -8,7 +8,7 @@ import project.cinema.security.AuthenticationService;
 
 @RestController
 public class AuthenticationController {
-    private AuthenticationService authenticationService;
+    private final AuthenticationService authenticationService;
 
     public AuthenticationController(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;

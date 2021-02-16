@@ -3,6 +3,7 @@ package project.cinema.service.impl.mappers;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import project.cinema.model.ShoppingCart;
+import project.cinema.model.Ticket;
 import project.cinema.model.dto.ShoppingCartResponseDto;
 import project.cinema.service.ShoppingCartMapper;
 
@@ -15,7 +16,7 @@ public class ShoppingCartMapperImpl implements ShoppingCartMapper {
         dto.setId(shoppingCart.getId());
         dto.setTicketsIdList(shoppingCart.getTickets()
                  .stream()
-                 .map(t -> t.getId())
+                 .map(Ticket::getId)
                  .collect(Collectors.toList()));
         return dto;
     }

@@ -17,10 +17,10 @@ import project.cinema.service.UserService;
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
-    private UserService userService;
-    private OrderService orderService;
-    private ShoppingCartService shoppingCartService;
-    private OrderMapper orderMapper;
+    private final UserService userService;
+    private final OrderService orderService;
+    private final ShoppingCartService shoppingCartService;
+    private final OrderMapper orderMapper;
 
     public OrderController(
             UserService userService, OrderService orderService,
@@ -33,15 +33,15 @@ public class OrderController {
 
     @PostMapping("/complete")
     public void completeOrder(@RequestParam Long id) {
-        orderService.completeOrder(shoppingCartService.getByUser(userService.getById(id).get()));
+        orderService.completeOrder(shoppingCartService.getByUser(userService.getById(id)));
     }
 
     @GetMapping
     public List<OrderResponseDto> getOrders(@RequestParam Long id) {
-        List<Order> ordersHistory = orderService.getOrdersHistory(userService.getById(id).get());
+        List<Order> ordersHistory = orderService.getOrdersHistory(userService.getById(id));
         return ordersHistory
                 .stream()
-                .map(o -> orderMapper.parseToDto(o))
+                .map(orderMapper::parseToDto)
                 .collect(Collectors.toList());
     }
 }
