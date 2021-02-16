@@ -1,4 +1,4 @@
-package project.cinema.service.impl;
+package project.cinema.service.impl.mappers;
 
 import org.springframework.stereotype.Component;
 import project.cinema.model.Movie;
@@ -8,7 +8,6 @@ import project.cinema.service.MovieMapper;
 
 @Component
 public class MovieMapperImpl implements MovieMapper {
-
     @Override
     public Movie parseFromDto(MovieRequestDto dto) {
         Movie movie = new Movie();

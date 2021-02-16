@@ -1,4 +1,4 @@
-package project.cinema.service.impl;
+package project.cinema.service.impl.mappers;
 
 import org.springframework.stereotype.Component;
 import project.cinema.model.CinemaHall;
