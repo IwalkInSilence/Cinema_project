@@ -8,7 +8,6 @@ import project.cinema.service.MovieMapper;
 
 @Component
 public class MovieMapperImpl implements MovieMapper {
-
     @Override
     public Movie parseFromDto(MovieRequestDto dto) {
         Movie movie = new Movie();
