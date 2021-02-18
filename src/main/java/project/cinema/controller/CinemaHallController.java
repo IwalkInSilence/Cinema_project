@@ -1,5 +1,6 @@
 package project.cinema.controller;
 
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,7 +34,7 @@ public class CinemaHallController {
     }
 
     @PostMapping
-    public void createCinemaHall(@RequestBody CinemaHallRequestDto dto) {
+    public void createCinemaHall(@RequestBody @Valid CinemaHallRequestDto dto) {
         cinemaHallService.add(cinemaHallMapper.parseFromDto(dto));
     }
 }

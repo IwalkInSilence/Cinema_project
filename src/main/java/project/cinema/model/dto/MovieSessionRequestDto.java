@@ -1,8 +1,13 @@
 package project.cinema.model.dto;
 
+import com.sun.istack.NotNull;
+
 public class MovieSessionRequestDto {
+    @NotNull
     private Long movieId;
+    @NotNull
     private Long cinemaHallId;
+    @NotNull
     private String localTime;
 
     public Long getMovieId() {

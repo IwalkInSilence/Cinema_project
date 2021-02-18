@@ -1,5 +1,6 @@
 package project.cinema.controller;
 
+import jakarta.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,12 +43,12 @@ public class MovieSessionController {
     }
 
     @PostMapping
-    public void create(@RequestBody MovieSessionRequestDto dto) {
+    public void create(@RequestBody @Valid MovieSessionRequestDto dto) {
         movieSessionService.add(movieSessionMapper.parseFromDto(dto));
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody MovieSessionRequestDto dto) {
+    public void update(@PathVariable Long id, @RequestBody @Valid MovieSessionRequestDto dto) {
         MovieSession movieSession = movieSessionMapper.parseFromDto(dto);
         movieSession.setId(id);
         movieSessionService.update(movieSession);

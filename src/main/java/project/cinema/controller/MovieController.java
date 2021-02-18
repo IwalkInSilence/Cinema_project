@@ -1,5 +1,6 @@
 package project.cinema.controller;
 
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +33,7 @@ public class MovieController {
     }
 
     @PostMapping
-    public void create(@RequestBody MovieRequestDto dto) {
+    public void create(@RequestBody @Valid MovieRequestDto dto) {
         movieService.add(movieMapper.parseFromDto(dto));
     }
 }

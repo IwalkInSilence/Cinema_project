@@ -1,7 +1,12 @@
 package project.cinema.model.dto;
 
+import com.sun.istack.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class MovieRequestDto {
+    @NotNull
     private String title;
+    @Size(max = 1500)
     private String description;
 
     public String getTitle() {
