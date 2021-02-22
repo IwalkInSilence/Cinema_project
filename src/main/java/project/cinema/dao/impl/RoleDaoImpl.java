@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import project.cinema.dao.RoleDao;
 import project.cinema.exception.DataProcessingException;
 import project.cinema.model.Role;
-import project.cinema.model.Roles;
+import project.cinema.model.RoleName;
 
 @Repository
 public class RoleDaoImpl implements RoleDao {
@@ -43,7 +43,7 @@ public class RoleDaoImpl implements RoleDao {
     public Optional<Role> getRoleByName(String roleName) {
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery("from Role where role = :roleName", Role.class)
-                     .setParameter("roleName", Roles.valueOf(roleName))
+                     .setParameter("roleName", RoleName.valueOf(roleName))
                      .uniqueResultOptional();
         } catch (Exception e) {
             throw new DataProcessingException("Can't get Role by name:" + roleName, e);

@@ -1,7 +1,7 @@
 package project.cinema.model;
 
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,13 +19,13 @@ public class User {
     @Column(nullable = false)
     private String password;
     @ManyToMany
-    private List<Role> roles;
+    private Set<Role> roles;
 
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 

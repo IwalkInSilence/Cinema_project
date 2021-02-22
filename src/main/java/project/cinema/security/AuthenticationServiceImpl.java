@@ -1,6 +1,6 @@
 package project.cinema.security;
 
-import java.util.List;
+import java.util.Set;
 import org.springframework.stereotype.Service;
 import project.cinema.model.User;
 import project.cinema.service.RoleService;
@@ -26,7 +26,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
-        user.setRoles(List.of(roleService.getRoleByName("USER")));
+        user.setRoles(Set.of(roleService.getRoleByName("USER")));
         User userFromDb = userService.add(user);
         shoppingCartService.registerNewShoppingCart(userFromDb);
         return userFromDb;

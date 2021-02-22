@@ -18,19 +18,17 @@ public class UserDetailsServiceImp implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userService.findByEmail(email).get();
+        User user = userService.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException(
+                        String.format("Can't find User by email : %s", email)));
         UserBuilder builder = null;
-        if (user != null) {
-            builder = org.springframework.security.core.userdetails.User.withUsername(email);
-            builder.password(user.getPassword());
-            String[] userRoles = user.getRoles()
-                    .stream()
-                    .map(r -> r.getRole().toString())
-                    .toArray(String[]::new);
-            builder.roles(userRoles);
-            return builder.build();
-        } else {
-            throw new UsernameNotFoundException("User not found.");
-        }
+        builder = org.springframework.security.core.userdetails.User.withUsername(email);
+        builder.password(user.getPassword());
+        String[] userRoles = user.getRoles()
+                .stream()
+                .map(r -> r.getRoleName().toString())
+                .toArray(String[]::new);
+        builder.roles(userRoles);
+        return builder.build();
     }
 }

@@ -1,10 +1,10 @@
 package project.cinema.util;
 
-import java.util.List;
+import java.util.Set;
 import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 import project.cinema.model.Role;
-import project.cinema.model.Roles;
+import project.cinema.model.RoleName;
 import project.cinema.model.User;
 import project.cinema.service.RoleService;
 import project.cinema.service.ShoppingCartService;
@@ -30,12 +30,12 @@ public class InjectData {
         userAdmin.setEmail("admin@epam.com");
         userAdmin.setPassword("1234");
         Role admin = new Role();
-        admin.setRole(Roles.ADMIN);
+        admin.setRoleName(RoleName.ADMIN);
         Role user = new Role();
-        user.setRole(Roles.USER);
+        user.setRoleName(RoleName.USER);
         roleService.add(admin);
         roleService.add(user);
-        userAdmin.setRoles(List.of(admin));
+        userAdmin.setRoles(Set.of(admin));
         shoppingCartService.registerNewShoppingCart(userService.add(userAdmin));
     }
 }
