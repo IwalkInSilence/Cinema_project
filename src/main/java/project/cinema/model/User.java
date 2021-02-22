@@ -1,11 +1,13 @@
 package project.cinema.model;
 
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class User {
@@ -16,6 +18,16 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String password;
+    @ManyToMany
+    private List<Role> roles;
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;
@@ -63,6 +75,6 @@ public class User {
     @Override
     public String toString() {
         return "User{" + "id=" + id + ", email='" + email + '\''
-                + ", password='" + password + '\'' + '}';
+                + ", password='" + password + '\'' + ", roles=" + roles + '}';
     }
 }
