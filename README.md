@@ -29,7 +29,7 @@ Store **registered Users** can perform the following actions:
 
 * view information about registered users;
 * view all orders placed at the store;
-* add new locations, events and sessions;
+* add new stadiums, games and game sessions(matches);
 * modify exist sessions.
 
 ## Technologies
