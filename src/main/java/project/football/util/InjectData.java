@@ -36,7 +36,6 @@ public class InjectData {
         roleService.add(admin);
         roleService.add(user);
         userAdmin.setRoles(Set.of(admin));
-        userService.add(userAdmin);
         shoppingCartService.registerNewShoppingCart(userService.add(userAdmin));
     }
 }
