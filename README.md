@@ -1,5 +1,5 @@
 #Stand-up ticket shop
-Implementation of an online store with default functionality written in Java.
+Implementation of an online store to bye tickets for Football matches with default functionality written in Java.
 
 ##Structure
 

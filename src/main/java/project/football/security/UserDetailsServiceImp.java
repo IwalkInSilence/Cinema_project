@@ -21,8 +21,8 @@ public class UserDetailsServiceImp implements UserDetailsService {
         User user = userService.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException(
                         String.format("Can't find User by email : %s", email)));
-        UserBuilder builder = null;
-        builder = org.springframework.security.core.userdetails.User.withUsername(email);
+        UserBuilder builder =
+                org.springframework.security.core.userdetails.User.withUsername(email);
         builder.password(user.getPassword());
         String[] userRoles = user.getRoles()
                 .stream()
