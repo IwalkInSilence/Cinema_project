@@ -23,7 +23,7 @@ Store **registered Users** can perform the following actions:
 * delete items from the cart;
 * place orders.
 
-**Admins** in their turn can:
+**Admins** have such authority:
 
 * view information about registered users;
 * view all orders placed at the store;
