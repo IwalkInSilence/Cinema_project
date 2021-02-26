@@ -1,13 +1,16 @@
 # Football matches ticket shop 
+
 **Implementation of an online store to bye tickets for Football matches with default functionality written in Java.**
 
 ## Structure
 
-###### The project has an N-tier structure and consists of the layers:
-* Database layer;
+###### The project has an N-tier structure and consists of the project layers:
+
+* Controllers.
+* Service layer(contains the business logic of thr project);
 * DAO layer (JDBC API);
-* Service layer(contains the business logic);
-* Layer with controllers.
+* Database layer;
+
 
 ###### Store clients can perform the following actions on this web-service: 
 
