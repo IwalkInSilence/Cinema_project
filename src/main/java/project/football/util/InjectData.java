@@ -2,8 +2,6 @@ package project.football.util;
 
 import java.util.Set;
 import javax.annotation.PostConstruct;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import project.football.model.Role;
 import project.football.model.RoleName;
@@ -18,7 +16,6 @@ public class InjectData {
     private final RoleService roleService;
     private final ShoppingCartService shoppingCartService;
 
-    @Autowired
     public InjectData(UserService userService,
                       RoleService roleService,
                       ShoppingCartService shoppingCartService) {
