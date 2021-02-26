@@ -1,5 +1,4 @@
 # Football matches ticket shop 
-
 **Implementation of an online store to bye tickets for Football matches with default functionality written in Java.**
 
 ## Structure
