@@ -9,16 +9,21 @@
 * Service layer(contains the business logic);
 * Layer with controllers.
 
-###### Clients can perform the following actions:
+###### Store clients can perform the following actions on this web-service: 
+
+**Not authenticated** customers can perform
 
 * register on the store's website;
-* log in;
-* look through events sold at the store;
-* add tickets to their cart;
-* delete tickets from the cart;
+* login;
+
+Store **registered Users** can perform the following actions:
+
+* login;
+* add items to their cart;
+* delete items from the cart;
 * place orders.
 
-###### Admins in their turn can:
+**Admins** in their turn can:
 
 * view information about registered users;
 * view all orders placed at the store;
