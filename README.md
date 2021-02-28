@@ -52,6 +52,8 @@ Store **registered Users** can perform the following actions:
 3. Download and install MySQL. Setup connection properties in **db.properties** file
 * user: "your username"
 * password: "your password"
-* db.url=jdbc:mysql://localhost/*your_db_name*?serverTimezone=EET
+* db.url=jdbc:mysql://localhost {_your_port_}/*your_db_name*?serverTimezone=EET
 4. Run a project
+5. To enter how registered **Admin** use(Login: admin@example.com, password: 1234), 
+   **User** (Login: user@example.com, password: 1111)
 
