@@ -17,7 +17,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @ComponentScan(basePackages = {
         "project.football.service",
         "project.football.dao",
-        "project.football.security"
+        "project.football.security",
+        "project.football.util",
+        "project.football.annotation"
 })
 public class AppConfig {
     private final Environment environment;

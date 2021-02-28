@@ -27,8 +27,11 @@ public class InjectData {
     @PostConstruct
     private void init() {
         User userAdmin = new User();
-        userAdmin.setEmail("admin@epam.com");
+        userAdmin.setEmail("admin@example.com");
         userAdmin.setPassword("1234");
+        User userUser = new User();
+        userUser.setEmail("user@example.com");
+        userUser.setPassword("1111");
         Role admin = new Role();
         admin.setRoleName(RoleName.ADMIN);
         Role user = new Role();
@@ -36,6 +39,8 @@ public class InjectData {
         roleService.add(admin);
         roleService.add(user);
         userAdmin.setRoles(Set.of(admin));
+        userUser.setRoles(Set.of(user));
         shoppingCartService.registerNewShoppingCart(userService.add(userAdmin));
+        shoppingCartService.registerNewShoppingCart(userService.add(userUser));
     }
 }
